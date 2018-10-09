@@ -1,0 +1,107 @@
+{% load static %}
+
+<html>
+<head>
+    <title>HTML5 Audio Player</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="{% static 'main2.css' %}" media="screen">
+</head>
+<body>
+<div id="container">
+	<div id="audio-image">
+		<img class="cover" />
+	</div>
+
+	<div id="audio-player">
+		<div id="audio-info">
+			<span class="movie"></span> - <span class="title"></span>
+		</div>
+		 <input id="volume" type="range" min="0" max="10" value="10" />
+		 <br>
+		 <div id="buttons">
+		 <span>
+			<button id="prev"></button>
+			<button id="play"></button>
+			<button id="pause"></button>
+			<button id="stop"></button>
+			<button id="next"></button>
+			</span>
+		 </div>
+		 <div class="clearfix"></div>
+		 <div id="tracker">
+			<div id="progressBar">
+				<span id="progress"></span>
+			</div>
+			<span id="duration"></span>
+		 </div>
+		 <div class="clearfix"></div>
+		 <ul id="playlist" class="hidden">
+
+		 	{% if my_mood == 'Happy' %}
+			<li song="http://songs1.songsrockers.com/hindi-songs/b/Barfi/01-Barfi-(SongsRocker.Com).mp3" cover="barfi.jpg" movie="Barfi">Barfi</li>
+			<li song="http://songs1.songsrockers.com/hindi-songs/b/Barfi/02-Main-Kya-Karoon-(SongsRocker.Com).mp3" cover="barfi.jpg" movie="Barfi">Main Kya Karoon</li>
+			
+			{% elif my_mood == 'Sad' %}
+			<li song="http://songs1.songsrockers.com/hindi-songs/numbers/1920-Evil-Returns/02-Uska-Hi-Banana-(SongsRocker.Com).mp3" cover="1920evil.jpg" movie="1920-Evil-Returns">Uska Hi Banana</li>
+			<li song="http://songs1.songsrockers.com/hindi-songs/f/Fukrey/01-Ambarsariya-(SongsRocker.Com).mp3" cover="fukrey.jpg" movie="Fukrey">Ambarsariya</li>
+			
+			{% elif my_mood == 'Angry' %}
+			<li song="http://songs1.songsrockers.com/hindi-songs/f/Fukrey/01-Fukrey-Title-Track-(SongsRocker.Com).mp3" cover="fukrey.jpg" movie="Fukrey">Fukrey Title Track</li>
+			<li song="http://songs1.songsrockers.com/hindi-songs/i/ishaqzaade/03-pareshaan-(songsrocker.com).mp3" cover="ishaqzaade.jpg" movie="Ishaqzaade">Pareshaan</li>
+			
+			{% elif my_mood == 'Disgust' %}
+			<li song="http://songs1.songsrockers.com/hindi-songs/i/I-Me-Aur-Main/02-Saajna-(SongsRocker.Com).mp3" cover="ime.jpg" movie="I-Me-Aur-Main">Saajna</li>
+			<li song="http://songs1.songsrockers.com/hindi-songs/m/Murder-3/01-Teri-Jhuki-Nazar-(SongsRocker.Com).mp3" cover="murder3.jpg" movie="Murder-3">Teri Jhuki Nazar</li>
+
+			{% elif my_mood == 'Surprise' %}
+			<li song="http://songs1.songsrockers.com/hindi-songs/i/ishaqzaade/04-jhalla_wallah-(songsrocker.com).mp3" cover="ishaqzaade.jpg" movie="Ishaqzaade">Jhalla Wallah</li>
+			<li song="http://songs1.songsrockers.com/hindi-songs/j/jism-2/01-abhi_abhi_(male)-(songsrocker.com).mp3" cover="jism2.jpg" movie="Jism 2">Abhi Abhi</li>
+			
+			{% elif my_mood == 'Fear' %}
+			<li song="http://songs1.songsrockers.com/hindi-songs/j/jannat-2/02-jannatein_kahan_(songsrocker.com).mp3" cover="jannat2.jpg" movie="Jannat 2">Jannatein Kahan</li>
+			<li song="http://songs1.songsrockers.com/hindi-songs/j/jannat-2/05-sang_hoon_tere_(songsrocker.com).mp3" cover="jannat2.jpg" movie="Jannat 2">Sang Hoon Tere</li>
+			
+			{% elif my_mood == 'Neutral' %}
+			<li song="http://songs1.songsrockers.com/hindi-songs/j/jannat-2/09-tujhe_sochta_hoon_(songsrocker.com).mp3" cover="jannat2.jpg" movie="Jannat 2">Tujhe Sochta Hoon</li>
+			<li song="http://songs1.songsrockers.com/hindi-songs/k/Khiladi-786/12-Khiladi-Remix-(SongsRocker.Com).mp3" cover="khiladi.jpg" movie="Khiladi-786">Khiladi Remix</li>
+			{% endif %}
+			
+		</ul>
+	</div>
+	<div id="detected_mood">
+		<span>
+			{% if my_mood == 'Happy' %}
+			Mood : Happy
+			{% elif my_mood == 'Sad' %}
+			Mood : Sad			
+			{% elif my_mood == 'Angry' %}
+			Mood : Angry
+			{% elif my_mood == 'Disgust' %}
+			Mood : Disgust
+			{% elif my_mood == 'Surprise' %}
+			Mood : Surprise
+			{% elif my_mood == 'Fear' %}
+			Mood : Fear
+			{% elif my_mood == 'Neutral' %}
+			Mood : Neutral
+			{% endif %}
+		</span>
+	</div>
+
+</div>
+
+<div id="center_div">
+	<div class="wrapper">
+	   <a target="_blank" href="https://www.facebook.com/akash720"><i class="fa fa-3x fa-facebook-square"></i></a>
+	   <a target="_blank" href="https://github.com/akash720/"><i class="fa fa-3x fa-github-square"></i></a>
+	   <a target="_blank" href="https://www.linkedin.com/in/akash-jain-248b55137/"><i class="fa fa-3x fa-linkedin-square"></i>
+	</div></a>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="{% static 'main2.js' %}"></script>
+</body>
+</html>

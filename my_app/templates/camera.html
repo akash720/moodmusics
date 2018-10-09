@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'camera.css' %}">
+
+    <title>Take Image from Webcam</title>
+</head>
+<body>
+    <h3>Take Image</h3>
+
+    <div class="container">
+
+      <div class="app">
+
+        <a href="#" id="start-camera" class="visible">Touch here to start the app.</a>
+        <video id="camera-stream"></video>
+        <img id="snap">
+
+        <p id="error-message"></p>
+
+        <div class="controls">
+          <a href="#" id="delete-photo" title="Delete Photo" class="disabled"><i class="material-icons">delete</i></a>
+          <a href="#" id="take-photo" title="Take Photo"><i class="material-icons">camera_alt</i></a>
+          <!--<a href="#" id="download-photo" download="image.jpg" title="Save Photo" class="disabled"><i class="material-icons">file_download</i></a>  -->
+          <a href="#" id="proceed" title="Proceed" class="disabled"><i class="material-icons">arrow_forward</i></a>
+        </div>
+        <form action="{% url 'mood-detect-play' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" id="image_d" name="image_data" value="">
+        </form>
+
+        <!-- Hidden canvas element. Used for taking snapshot of video. -->
+        <canvas></canvas>
+
+      </div>
+
+    </div>
+
+    <!--<a id="proceed" href="main2.html">Proceed</a>-->
+    <a id="start_stop" href = "#" style="visibility: hidden;">Stop camera</a>
+    <a id="save_photo" href = "#" download="image.jpg" style="visibility: hidden;">Download</a>
+
+    <div class="wrapper">
+       <a target="_blank" href="https://www.facebook.com/akash720"><i class="fa fa-3x fa-facebook-square"></i></a>
+       <a target="_blank" href="https://github.com/akash720/"><i class="fa fa-3x fa-github-square"></i></a>
+       <a target="_blank" href="https://www.linkedin.com/in/akash-jain-248b55137/"><i class="fa fa-3x fa-linkedin-square"></i>
+    </div></a>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script src="{% static 'camera.js' %}"></script>
+    
+</body>
+</html>
