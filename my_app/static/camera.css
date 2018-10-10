@@ -23,7 +23,10 @@ h3{
 	font: normal 32px/1.5 'Open Sans', sans-serif;
 	color: #daccc7;
 	text-align: center;
+	padding-left: 25%;
 }
+
+
 
 .wrapper {
   display: inline-flex;
@@ -211,6 +214,10 @@ h3{
 	.app .controls #take-photo i{
 		font-size: 24px;
 	}
+
+	.instructions {
+		padding-right: 20%;
+	}
 }
 
 
@@ -232,8 +239,17 @@ h3{
 	.app .controls #take-photo i{
 		font-size: 18px;
 	}
+
+	.instructions {
+		padding-right: 10%;
+	}
 }
 
+@media(min-width: 1000px){
+	.instructions {
+		padding-right: 25%;
+	}
+}
 /* #proceed {
 	visibility: hidden;
 	display: flex;
@@ -255,3 +271,36 @@ h3{
 	justify-content: center;
 	margin-bottom: 20px;
 }
+
+.instructions{
+	color: #fff;
+    float: right;
+    margin: 15px;
+    text-decoration: none;
+    line-height: 0;
+    opacity: 0.7;
+    outline: none;
+    transform: scale(1.1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.instructions:hover{
+	opacity: 1;
+	color: tan;
+}
+
+.swal-button {
+  padding: 7px 19px;
+  background-color: #4962B3;
+  font-size: 12px;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.swal-modal {
+	border-radius: 5%;
+}
+
+.swal-text {
+	font-weight: 500;
+}
+

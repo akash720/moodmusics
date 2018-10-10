@@ -106,6 +106,7 @@ input#volume::-webkit-slider-thumb {
 button#play{
 	width:70px;
 	height:70px;
+	outline: none;
 	transform: scale(0.7);
 	background:url(play.png) no-repeat;
 	float:left;
@@ -118,6 +119,7 @@ button#play:hover{
 button#pause{
 	width:70px;
 	height:70px;
+	outline: none;
 	transform: scale(0.7);
 	background:url(pause.png) no-repeat;
 	float:left;
@@ -132,6 +134,7 @@ button#stop{
 	transform: scale(0.7);
 	background:url(stop.png) no-repeat;
 	float:left;
+	outline: none;
 }
 
 button#stop:hover{
@@ -143,6 +146,7 @@ button#prev{
 	height:35px;
 	background:url(prev.png) no-repeat;
 	float:left;
+	outline: none;
 	transform: scale(0.7);
 	margin-top:15px;
 }
@@ -157,6 +161,7 @@ button#next{
 	transform: scale(0.7);
 	background:url(next.png) no-repeat;
 	float:right;
+	outline: none;
 	margin-top:15px;
 }
 

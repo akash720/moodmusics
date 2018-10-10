@@ -7,14 +7,15 @@ var video = document.querySelector('#camera-stream'),
   delete_photo_btn = document.querySelector('#delete-photo'),
   save = document.querySelector('#save_photo'),
   proceed_btn = document.querySelector('#proceed'),
+  instructions_btn = document.querySelector('#instructions'),
   error_message = document.querySelector('#error-message'),
   localStream = null,
   start = 1,
   start_stop_btn = document.querySelector('#start_stop'),
-  hidden_canvas = document.querySelector('canvas');
+  hidden_canvas = document.querySelector('canvas'),
+  strImage = null,
+  imageURI = null;
 
-  var strImage = null;
-  var imageURI = null;
 // The getUserMedia interface is used for handling camera input.
 // Some browsers need a prefix so here we're covering all the options
 navigator.getMedia = ( navigator.getUserMedia ||
@@ -44,6 +45,7 @@ else{
       } catch (error) {
         video.src = window.URL.createObjectURL(stream);
       }
+
       // Play the video element to start the stream.
       video.play();
       video.onplay = function() {
@@ -59,8 +61,6 @@ else{
     );
 
 }
-
-
 
 // Mobile browsers cannot play video without user input,
 // so here we're using a button to start it manually.
@@ -87,19 +87,14 @@ take_photo_btn.addEventListener("click", function(e){
 
   // Enable delete,take_photo and proceed buttons
   delete_photo_btn.classList.remove("disabled");
-  //download_photo_btn.classList.remove("disabled");
   proceed_btn.classList.remove("disabled");
-  
   take_photo_btn.classList.add('disabled');
-  save.href = snap;
-  save.style = "visibility: visible";
+
   // Set the href attribute of the download button to the snap url.
-  //download_photo_btn.href = snap;
+  save.href = snap;
 
-  //proceed = document.querySelector("#proceed");
-  //proceed.style="visibility: visible";
-
-  // Pause video playback of stream.
+  //enable save button
+  save.style = "visibility: visible";
   video.pause();
 
 });
@@ -113,17 +108,16 @@ delete_photo_btn.addEventListener("click", function(e){
   image.setAttribute('src', "");
   image.classList.remove("visible");
 
+  //hide save button
   save.style = "visibility: hidden";
   
-  // Disable delete and save buttons
-  delete_photo_btn.classList.add("disabled");
- // download_photo_btn.classList.add("disabled");
+  // Disable delete and proceed buttons
+ delete_photo_btn.classList.add("disabled");
  proceed_btn.classList.add("disabled");
+
  if(video.srcObject != null){
   take_photo_btn.classList.remove('disabled');
 }
-  //proceed = document.querySelector("#proceed");
-  //proceed.style="visibility: hidden";
 
   // Resume playback of stream.
   video.play();
@@ -142,12 +136,13 @@ function showVideo(){
 
 
 function takeSnapshot(){
-  // Here we're using a trick that involves a hidden canvas element.  
+  // Here we're using a hidden canvas element.  
 
   var context = hidden_canvas.getContext('2d');
 
+  //initialize width & height to video input dimensions
   var width = video.videoWidth,
-  height = video.videoHeight;
+      height = video.videoHeight;
 
   if (width && height) {
 
@@ -158,10 +153,10 @@ function takeSnapshot(){
     // Make a copy of the current frame in the video on the canvas.
     context.drawImage(video, 0, 0, width, height);
 
+    // Turn the canvas image into a dataURL that can be used as a src for our photo.
     imageData = hidden_canvas.toDataURL('image/png');
     strImage = imageData.replace(/^data:image\/[a-z]+;base64,/, "");
     
-    // Turn the canvas image into a dataURL that can be used as a src for our photo.
     return imageData;
   }
 }
@@ -169,18 +164,10 @@ function takeSnapshot(){
 proceed_btn.addEventListener("click", function(e){
 
   e.preventDefault();
+
+  //post request to send image_data
   $('form input[name=image_data]').val(strImage);
   $('form').submit();
-  // $.post('player/', {'imageDataURI' : strImage })
-  /* $.ajax({
-            url: '/player/',
-            data: {'imageDataURI' : strImage },
-            type: "POST",
-            dataType: 'json',
-            success: function () {
-              console.log("process complete"); 
-            }
-          }); */
 });
 
 
@@ -220,6 +207,7 @@ function stopStreamedVideo(videoElem) {
 start_stop.addEventListener("click", function(e) {
   e.preventDefault();
 
+  //change url text and its function
   if(start == 1) {
     stopStreamedVideo(video);
     start = 0;  
@@ -260,4 +248,18 @@ start_stop.addEventListener("click", function(e) {
         }
         );
   }
+});
+
+window.onload = popup();
+
+function popup() {
+  swal("Instructions", "1. Please allow camera permission to use the app.\n 2. Please ensure that your are under proper lighting.\
+    \n3. If the camera fails to detect your mood, the page will reload automatically.", "info");
+}
+
+instructions_btn.addEventListener("click", function(e){
+
+  e.preventDefault();
+
+  popup();
 });
