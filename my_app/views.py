@@ -20,23 +20,27 @@ def get_label(argument):
 
 
 def detect(request):
+	#Using another pre-trained model because of it's better accuracy
 	my_model = load_model("my_app/my_model.hdf5", compile = False)
 	face_cascade = cv2.CascadeClassifier('my_app/haarcascade_frontalface_default.xml')
 
+	#Getting image
 	data = request.POST['image_data']
-	binary_data = a2b_base64(data)
 
+	#Decoding image URI
+	binary_data = a2b_base64(data)
 	image_data = BytesIO(binary_data)
+
 	img = np.array(Image.open(image_data))
-	#fd = open('image.png', 'wb')
-	#fd.write(binary_data)
-	#fd.close()
-	#img = cv2.imread(r'image.png') 
-	#img = cv2.imread(r'C:\Users\akash\Downloads\image.jpg')
+
+	#Converting to grayscale
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+	#Detecting faces
 	faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 	if len(faces)==0:
 		K.clear_session()
+		#No face, redirect to openCamera
 		return redirect(openCamera)
 	x_axis = 10
 	y_axis = 10
