@@ -254,7 +254,45 @@ window.onload = popup();
 
 function popup() {
   swal("Instructions", "1. Please allow camera permission to use the app.\n 2. Please ensure that your are under proper lighting.\
-    \n3. If the camera fails to detect your mood, the page will reload automatically.", "info");
+    \n3. If the camera fails to detect your mood, the page will reload automatically.\
+    \n4. Your photo will never be saved anywhere.", "info").then(function() 
+    { 
+      var anno1 = new Anno(
+        [{
+        target : '#take-photo',
+        content: 'Use this to take photo',
+        onShow: function () {
+            take_photo_btn.style.pointerEvents = 'none';
+          },
+        onHide: function() {
+            take_photo_btn.style.pointerEvents = 'auto';
+          }
+        },
+        {
+        target : '#delete-photo',
+        buttons: [AnnoButton.BackButton, AnnoButton.NextButton],
+        content: 'Use this to delete a photo',
+        onShow: function () {
+            take_photo_btn.style.pointerEvents = 'none';
+          },
+        onHide: function() {
+            take_photo_btn.style.pointerEvents = 'auto';
+          }
+        },
+        {
+        target : '#proceed',
+        buttons: [AnnoButton.BackButton, AnnoButton.DoneButton],
+        content : 'Use this to proceed to mood detection',
+        onShow: function () {
+            take_photo_btn.style.pointerEvents = 'none';
+          },
+        onHide: function() {
+            take_photo_btn.style.pointerEvents = 'auto';
+          }
+      }]
+      );    
+      anno1.show();
+    }); 
 }
 
 instructions_btn.addEventListener("click", function(e){

@@ -304,3 +304,6 @@ h3{
 	font-weight: 500;
 }
 
+.anno-overlay {
+	z-index: auto;
+}
