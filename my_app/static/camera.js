@@ -260,6 +260,7 @@ function popup() {
       var anno1 = new Anno(
         [{
         target : '#take-photo',
+        position: 'center-bottom',
         content: 'Use this to take photo',
         onShow: function () {
             take_photo_btn.style.pointerEvents = 'none';
@@ -270,6 +271,7 @@ function popup() {
         },
         {
         target : '#delete-photo',
+        position: 'center-bottom',
         buttons: [AnnoButton.BackButton, AnnoButton.NextButton],
         content: 'Use this to delete a photo',
         onShow: function () {
@@ -281,6 +283,7 @@ function popup() {
         },
         {
         target : '#proceed',
+        position: 'center-bottom',
         buttons: [AnnoButton.BackButton, AnnoButton.DoneButton],
         content : 'Use this to proceed to mood detection',
         onShow: function () {
