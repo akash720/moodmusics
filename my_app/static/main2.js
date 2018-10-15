@@ -1,4 +1,9 @@
 var audio;
+var vol_img = document.getElementById('volume_button');
+vol_img.setAttribute('src', "/static/vol_on.png");
+
+var current_vol = 0;
+var is_on = 1;
 
 //Hide Pause Initially
 $('#pause').hide();
@@ -104,6 +109,14 @@ $('#playlist li').click(function () {
 //Volume Control
 $('#volume').change(function(){
 	audio.volume = parseFloat(this.value / 10);
+
+	if(this.value == 0){
+		vol_img.setAttribute('src', "/static/vol_off.png");
+	}
+
+	else {
+		vol_img.setAttribute('src', "/static/vol_on.png");
+	}
 });
 	
 //Time Duration
@@ -141,4 +154,22 @@ $("#progressBar").mouseup(function(e){
     var leftOffset = e.pageX - $(this).offset().left;
     var songPercents = leftOffset / $('#progressBar').width();
  audio.currentTime = songPercents * audio.duration;
+});
+
+document.getElementById('volume_button').addEventListener('click', function(e){
+
+	e.preventDefault();
+	if(is_on == 1) {
+		vol_img.setAttribute('src', "/static/vol_off.png");
+		current_vol = document.getElementById("volume").value;
+		document.getElementById("volume").value = 0;
+		audio.volume = 0;
+		is_on = 0;
+	}
+	else {
+		vol_img.setAttribute('src', "/static/vol_on.png");
+		audio.volume = parseFloat(current_vol / 10);
+		document.getElementById("volume").value = current_vol;
+		is_on = 1;
+	}
 });

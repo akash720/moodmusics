@@ -307,3 +307,7 @@ h3{
 .anno-overlay {
 	z-index: auto;
 }
+
+.anno-inner {
+	margin: 0px 30px;
+}

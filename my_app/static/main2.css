@@ -81,9 +81,19 @@ body{
 	z-index:1;
 }
 
+#vol_controls {
+	display: flex;
+}
+
+#volume_button {
+	height:24px;
+    width:24px;
+    margin: 2% 3%;
+}
+
 input#volume {
-	width:95%;
-	margin-left:2%;
+	width:82%;
+	margin-top:5%;
     -webkit-appearance: none !important;
     background:#ccc;
     height:2px;
@@ -225,7 +235,7 @@ button#next:hover{
 	position:absolute;
 	top:0;
 	right:10px;
-	margin: 0px 8px;
+	margin: 0px 4px;
 	padding: 0px 3px;
 	background: #282828;
 	border-radius:5px;

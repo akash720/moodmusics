@@ -304,3 +304,7 @@ instructions_btn.addEventListener("click", function(e){
 
   popup();
 });
+
+function enableScroll() {
+  $(window).off('wheel.impair');
+}
