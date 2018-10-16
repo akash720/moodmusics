@@ -9,6 +9,7 @@ var video = document.querySelector('#camera-stream'),
   proceed_btn = document.querySelector('#proceed'),
   instructions_btn = document.querySelector('#instructions'),
   error_message = document.querySelector('#error-message'),
+  error_ins = document.querySelector('#error_instructions'),
   localStream = null,
   start = 1,
   start_stop_btn = document.querySelector('#start_stop'),
@@ -56,7 +57,7 @@ else{
     },
     // Error Callback
     function(err){
-      displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err);
+      displayErrorMessage("There was an error with accessing the camera stream: " + err.name, err); 
     }
     );
 
@@ -124,8 +125,6 @@ delete_photo_btn.addEventListener("click", function(e){
 
 });
 
-
-
 function showVideo(){
   // Display the video stream and the controls.
 
@@ -165,25 +164,31 @@ proceed_btn.addEventListener("click", function(e){
 
   e.preventDefault();
 
+   // Disable button for multiple tap
+  proceed_btn.classList.add("disabled");
+
   //post request to send image_data
   $('form input[name=image_data]').val(strImage);
   $('form').submit();
 });
-
-
 
 function displayErrorMessage(error_msg, error){
   error = error || "";
   if(error){
     console.log(error);
   }
+  var instructions_link = error_message.innerHTML;
+  error_message.innerHTML = error_msg+ "\n\n" + instructions_link ;
 
-  error_message.innerText = error_msg;
+  document.querySelector('#error_instructions').addEventListener('click', function(){
+    swal("1. To the left of the web page address, click the Lock or Info icon \
+     \n2. Click Site Settings\n3. Change 'Access your Camera' to allow\n4. Refresh the page");
+  });
 
   hideUI();
   error_message.classList.add("visible");
+  error_ins.classList.add("visible");
 }
-
 
 function hideUI(){
   // Helper function for clearing the app UI.
@@ -193,6 +198,7 @@ function hideUI(){
   video.classList.remove("visible");
   snap.classList.remove("visible");
   error_message.classList.remove("visible");
+  error_ins.classList.remove("visible");
 }
 
 function stopStreamedVideo(videoElem) {
@@ -299,12 +305,6 @@ function popup() {
 }
 
 instructions_btn.addEventListener("click", function(e){
-
   e.preventDefault();
-
   popup();
 });
-
-function enableScroll() {
-  $(window).off('wheel.impair');
-}

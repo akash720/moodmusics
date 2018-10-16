@@ -109,7 +109,7 @@ h3{
 	background-color: #ccc;
 	color: #9b9b9b;
 	font-size: 28px;
-	padding: 200px 100px;
+	padding: 170px 100px;
 	text-align: center;
 	display: none;
 }
@@ -243,6 +243,9 @@ h3{
 	.instructions {
 		padding-right: 10%;
 	}
+	.anno-inner {
+	margin: 0px 30px;
+	}
 }
 
 @media(min-width: 1000px){
@@ -250,13 +253,7 @@ h3{
 		padding-right: 25%;
 	}
 }
-/* #proceed {
-	visibility: hidden;
-	display: flex;
-	font-size: xx-large;
-	justify-content: center;
-	margin-bottom: 10px;
-}*/
+
 
 #start_stop {
 	display: flex;
@@ -308,6 +305,3 @@ h3{
 	z-index: auto;
 }
 
-.anno-inner {
-	margin: 0px 30px;
-}
