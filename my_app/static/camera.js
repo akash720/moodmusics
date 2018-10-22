@@ -15,7 +15,8 @@ var video = document.querySelector('#camera-stream'),
   start_stop_btn = document.querySelector('#start_stop'),
   hidden_canvas = document.querySelector('canvas'),
   strImage = null,
-  imageURI = null;
+  imageURI = null,
+  visited = localStorage.getItem('visited');
 
 // The getUserMedia interface is used for handling camera input.
 // Some browsers need a prefix so here we're covering all the options
@@ -256,7 +257,11 @@ start_stop.addEventListener("click", function(e) {
   }
 });
 
-window.onload = popup();
+if(!visited){
+	window.onload = popup();
+	localStorage.setItem('visited', 'yes');
+}
+
 
 function popup() {
   swal("Instructions", "1. Please allow camera permission to use the app.\n 2. Please ensure that your are under proper lighting.\
