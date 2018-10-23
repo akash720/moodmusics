@@ -7,6 +7,11 @@ var is_on = 1;
 
 //Hide Pause Initially
 $('#pause').hide();
+
+var ul = document.querySelector('ul');
+for (var i = ul.children.length; i >= 0; i--) {
+    ul.appendChild(ul.children[Math.random() * i | 0]);
+}
 	
 //Initializer - Play First Song
 initAudio($('#playlist li:first-child'));
@@ -33,6 +38,12 @@ function initAudio(element){
 	
 	$('#playlist li').removeClass('active');
     element.addClass('active');
+
+    //After song ends play next song
+    $(audio).on("ended", function() {
+        $('#progress').css('width',0+'%');
+    	$('#next').trigger('click');
+    });
 }
 
 
@@ -65,7 +76,7 @@ $('#stop').click(function(){
 
 //Next Button
 $('#next').click(function(){
-    audio.pause();
+	audio.pause();
     var next = $('#playlist li.active').next();
     if (next.length == 0) {
         next = $('#playlist li:first-child');
@@ -138,22 +149,15 @@ function showDuration(){
 	});
 }
 
-//After song ends play next song
-$(audio).on("ended", function() {
-    audio.pause();
-    var next = $('#playlist li.active').next();
-    if (next.length == 0) {
-        next = $('#playlist li:first-child');
-    }
-    initAudio(next);
- audio.play();
- showDuration();
-});
-
 $("#progressBar").mouseup(function(e){
     var leftOffset = e.pageX - $(this).offset().left;
     var songPercents = leftOffset / $('#progressBar').width();
- audio.currentTime = songPercents * audio.duration;
+    try {
+    	audio.currentTime = songPercents * audio.duration;
+    }
+ 	catch(err) {
+ 	    console.log("Audio not loaded.");
+ 	}
 });
 
 document.getElementById('volume_button').addEventListener('click', function(e){
