@@ -25,7 +25,12 @@ def detect(request):
 	face_cascade = cv2.CascadeClassifier('my_app/haarcascade_frontalface_default.xml')
 
 	#Getting image
-	data = request.POST['image_data']
+	try:
+		data = request.POST['image_data']
+	except:
+		K.clear_session()
+		#No data, redirect to openCamera
+		return redirect(openCamera)
 
 	#Decoding image URI
 	binary_data = a2b_base64(data)
