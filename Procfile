@@ -1,1 +1,1 @@
-web: gunicorn moodmusics.wsgi
+web: gunicorn moodmusics.wsgi --preload
