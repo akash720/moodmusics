@@ -26,10 +26,8 @@ h3{
 	padding-left: 25%;
 }
 
-
-
 .wrapper {
-  display: inline-flex;
+  display: flex;
   justify-content: center;
 }
 .wrapper i {
