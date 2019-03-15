@@ -27,7 +27,7 @@ function initAudio(element){
 	audio = new Audio(song);
 	
 	if(!audio.currentTime){
-		$('#duration').html('0.00');
+		$('#duration').html('0:00');
 	}
 
 	$('#audio-player .title').text(title);
