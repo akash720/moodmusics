@@ -69,6 +69,7 @@ body{
 }
 
 #audio-info{
+	margin-bottom: 2%;
 	text-align:center;
 }
 
@@ -108,7 +109,7 @@ input#volume::-webkit-slider-thumb {
 #buttons{
 	width:90%;
 	display: flex;
-    margin: 15px auto;
+    margin: 10px auto;
 	justify-content: center;
 }
 
@@ -212,28 +213,17 @@ button#next:hover{
 	transform: scale(1.1);
 }
 
-#progressBar { 
-   width:80%;
-   margin-left:2%;
-   margin-bottom:20px;
-   margin-top:9px;
-   height:10px;
-   background:url(progress_bg.png) no-repeat;
-   float:left;
-   transform: scaleY(1.5);
+.progress { 
+    height: 12px;
+    width: 80%;
+    margin-left: 4%;
+    margin-bottom: 6%;
 }
-
-#progress {
-   background:url(progress.png) no-repeat;
-   height:10px;
-   display:inline-block;
-}
-
 
 #duration{
 	position:absolute;
-	top:0;
-	right:10px;
+    bottom: -6px;
+    right:6px;
 	margin: 0px 4px;
 	padding: 0px 3px;
 	background: #282828;

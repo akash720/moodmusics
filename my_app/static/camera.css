@@ -10,7 +10,7 @@
 html{
 	background-color: #fff;
 	font:normal 16px/1.5 sans-serif;
-	background: url(cam_bg.jpg);
+	background: url(bg.png);
 	color: #333;
 }
 
@@ -254,17 +254,19 @@ h3{
 
 
 #start_stop {
-	display: flex;
-	font-size: xx-large;
-	justify-content: center;
-	margin-bottom: 5px;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+    margin-bottom: 12px;
+    width: 28%;
 }
 
 #save_photo {
 	display: flex;
-	font-size: xx-large;
-	justify-content: center;
-	margin-bottom: 20px;
+    font-size: 1.2rem;
+    justify-content: center;
+    margin-bottom: 20px;
+    width: 25%;
 }
 
 .instructions{

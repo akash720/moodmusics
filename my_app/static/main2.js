@@ -41,7 +41,7 @@ function initAudio(element){
 
     //After song ends play next song
     $(audio).on("ended", function() {
-        $('#progress').css('width',0+'%');
+        $('.progress-bar').css('width',0+'%');
     	$('#next').trigger('click');
     });
 }
@@ -53,7 +53,7 @@ $('#play').click(function(){
 	$('#play').hide();
 	$('#pause').show();
 	$('#duration').fadeIn(400);
-	$('#progressBar').fadeIn(400);
+	$('.progress').fadeIn(400);
 	showDuration();
 });
 
@@ -71,7 +71,7 @@ $('#stop').click(function(){
 	$('#pause').hide();
 	$('#play').show();
 	$('#duration').fadeOut(400);
-	$('#progressBar').fadeOut(400);
+	$('.progress').fadeOut(400);
 });
 
 //Next Button
@@ -145,13 +145,13 @@ function showDuration(){
 		if (audio.currentTime > 0) {
 			value = ((100 / audio.duration) * audio.currentTime); 
 		}
-		$('#progress').css('width',value+'%');
+		$('.progress-bar').css('width',value+'%');
 	});
 }
 
-$("#progressBar").mouseup(function(e){
+$(".progress").mouseup(function(e){
     var leftOffset = e.pageX - $(this).offset().left;
-    var songPercents = leftOffset / $('#progressBar').width();
+    var songPercents = leftOffset / $('.progress').width();
     try {
     	audio.currentTime = songPercents * audio.duration;
     }

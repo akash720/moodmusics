@@ -1,22 +1,22 @@
 // References to all the element we will need.
 var video = document.querySelector('#camera-stream'),
-image = document.querySelector('#snap'),
-start_camera = document.querySelector('#start-camera'),
-controls = document.querySelector('.controls'),
-take_photo_btn = document.querySelector('#take-photo'),
-delete_photo_btn = document.querySelector('#delete-photo'),
-save = document.querySelector('#save_photo'),
-proceed_btn = document.querySelector('#proceed'),
-instructions_btn = document.querySelector('#instructions'),
-error_message = document.querySelector('#error-message'),
-error_ins = document.querySelector('#error_instructions'),
-localStream = null,
-start = 1,
-start_stop_btn = document.querySelector('#start_stop'),
-hidden_canvas = document.querySelector('canvas'),
-strImage = null,
-imageURI = null,
-visited = localStorage.getItem('visited');
+  image = document.querySelector('#snap'),
+  start_camera = document.querySelector('#start-camera'),
+  controls = document.querySelector('.controls'),
+  take_photo_btn = document.querySelector('#take-photo'),
+  delete_photo_btn = document.querySelector('#delete-photo'),
+  save = document.querySelector('#save_photo'),
+  proceed_btn = document.querySelector('#proceed'),
+  instructions_btn = document.querySelector('#instructions'),
+  error_message = document.querySelector('#error-message'),
+  error_ins = document.querySelector('#error_instructions'),
+  localStream = null,
+  start = 1,
+  start_stop_btn = document.querySelector('#start_stop'),
+  hidden_canvas = document.querySelector('canvas'),
+  strImage = null,
+  imageURI = null,
+  visited = localStorage.getItem('visited');
 
 // The getUserMedia interface is used for handling camera input.
 // Some browsers need a prefix so here we're covering all the options
@@ -219,6 +219,10 @@ start_stop.addEventListener("click", function(e) {
     stopStreamedVideo(video);
     start = 0;  
     $('#start_stop').html('Start camera');
+
+    $('#start_stop').removeClass('btn-danger');
+    $('#start_stop').addClass('btn-success');
+    
     take_photo_btn.classList.add('disabled');
   }
   else {
@@ -247,6 +251,10 @@ start_stop.addEventListener("click", function(e) {
           take_photo_btn.classList.remove('disabled');
 
           start = 1;
+
+          $('#start_stop').removeClass('btn-success');
+          $('#start_stop').addClass('btn-danger');
+
           $('#start_stop').html('Stop camera');
         },
         // Error Callback
