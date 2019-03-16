@@ -225,6 +225,14 @@ h3{
 		margin: 10px;
 	}
 
+	#start_stop {
+		width: 40%;
+	}
+
+	#save_photo {
+		width: 32%
+	}
+
 	.app #error-message{
 		padding: 80px 50px;
 		font-size: 18px;
@@ -258,7 +266,7 @@ h3{
     font-size: 1.2rem;
     justify-content: center;
     margin-bottom: 12px;
-    width: 28%;
+    width: 30%;
 }
 
 #save_photo {
