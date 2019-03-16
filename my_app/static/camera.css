@@ -216,6 +216,14 @@ h3{
 	.instructions {
 		padding-right: 20%;
 	}
+
+	#start_stop {
+		width: 30%;
+	}
+
+	#save_photo {
+		width: 25%;
+	}
 }
 
 
@@ -226,11 +234,11 @@ h3{
 	}
 
 	#start_stop {
-		width: 40%;
+		width: 42%;
 	}
 
 	#save_photo {
-		width: 32%
+		width: 34%;
 	}
 
 	.app #error-message{
@@ -258,6 +266,14 @@ h3{
 	.instructions {
 		padding-right: 25%;
 	}
+
+	#start_stop {
+		width: 30%;
+	}
+
+	#save_photo {
+		width: 25%;
+	}
 }
 
 
@@ -266,7 +282,6 @@ h3{
     font-size: 1.2rem;
     justify-content: center;
     margin-bottom: 12px;
-    width: 30%;
 }
 
 #save_photo {
@@ -274,7 +289,6 @@ h3{
     font-size: 1.2rem;
     justify-content: center;
     margin-bottom: 20px;
-    width: 25%;
 }
 
 .instructions{
