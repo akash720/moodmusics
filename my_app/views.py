@@ -12,8 +12,8 @@ def openCamera(request):
 	return render(request, 'camera.html')
 
 my_mood = '';
-#Defining labels 
 
+#Defining labels 
 def get_label(argument):
     labels = {0:'Angry', 1:'Disgust', 2:'Fear', 3:'Happy', 4:'Sad' , 5:'Surprise', 6:'Neutral'}
     return(labels.get(argument, "Invalid emotion"))
@@ -43,15 +43,14 @@ def detect(request):
 
 	#Detecting faces
 	faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+
 	if len(faces)==0:
 		K.clear_session()
 		#No face, redirect to openCamera
 		return redirect(openCamera)
-	x_axis = 10
-	y_axis = 10
+
 	for (x, y, w, h) in faces:
 		crop_img = img[y:y+h, x:x+w]
-		x_axis,y_axis = x,y
 
 	#Resizing image to required size and processing
 	test_image = cv2.resize(crop_img, (64,64))

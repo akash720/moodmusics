@@ -1,22 +1,22 @@
 // References to all the element we will need.
 var video = document.querySelector('#camera-stream'),
-  image = document.querySelector('#snap'),
-  start_camera = document.querySelector('#start-camera'),
-  controls = document.querySelector('.controls'),
-  take_photo_btn = document.querySelector('#take-photo'),
-  delete_photo_btn = document.querySelector('#delete-photo'),
-  save = document.querySelector('#save_photo'),
-  proceed_btn = document.querySelector('#proceed'),
-  instructions_btn = document.querySelector('#instructions'),
-  error_message = document.querySelector('#error-message'),
-  error_ins = document.querySelector('#error_instructions'),
-  localStream = null,
-  start = 1,
-  start_stop_btn = document.querySelector('#start_stop'),
-  hidden_canvas = document.querySelector('canvas'),
-  strImage = null,
-  imageURI = null,
-  visited = localStorage.getItem('visited');
+image = document.querySelector('#snap'),
+start_camera = document.querySelector('#start-camera'),
+controls = document.querySelector('.controls'),
+take_photo_btn = document.querySelector('#take-photo'),
+delete_photo_btn = document.querySelector('#delete-photo'),
+save = document.querySelector('#save_photo'),
+proceed_btn = document.querySelector('#proceed'),
+instructions_btn = document.querySelector('#instructions'),
+error_message = document.querySelector('#error-message'),
+error_ins = document.querySelector('#error_instructions'),
+localStream = null,
+start = 1,
+start_stop_btn = document.querySelector('#start_stop'),
+hidden_canvas = document.querySelector('canvas'),
+strImage = null,
+imageURI = null,
+visited = localStorage.getItem('visited');
 
 // The getUserMedia interface is used for handling camera input.
 // Some browsers need a prefix so here we're covering all the options
@@ -114,12 +114,12 @@ delete_photo_btn.addEventListener("click", function(e){
   save.style = "visibility: hidden";
   
   // Disable delete and proceed buttons
- delete_photo_btn.classList.add("disabled");
- proceed_btn.classList.add("disabled");
+  delete_photo_btn.classList.add("disabled");
+  proceed_btn.classList.add("disabled");
 
- if(video.srcObject != null){
-  take_photo_btn.classList.remove('disabled');
-}
+  if(video.srcObject != null){
+    take_photo_btn.classList.remove('disabled');
+  }
 
   // Resume playback of stream.
   video.play();
@@ -142,7 +142,7 @@ function takeSnapshot(){
 
   //initialize width & height to video input dimensions
   var width = video.videoWidth,
-      height = video.videoHeight;
+  height = video.videoHeight;
 
   if (width && height) {
 
@@ -166,7 +166,7 @@ proceed_btn.addEventListener("click", function(e){
   e.preventDefault();
 
    // Disable button for multiple tap
-  proceed_btn.classList.add("disabled");
+   proceed_btn.classList.add("disabled");
 
   //post request to send image_data
   $('form input[name=image_data]').val(strImage);
@@ -270,46 +270,46 @@ function popup() {
     { 
       var anno1 = new Anno(
         [{
-        target : '#take-photo',
-        position: 'center-bottom',
-        content: 'Use this to take photo',
-        onShow: function () {
+          target : '#take-photo',
+          position: 'center-bottom',
+          content: 'Use this to take photo',
+          onShow: function () {
             take_photo_btn.style.pointerEvents = 'none';
           },
-        onHide: function() {
+          onHide: function() {
             take_photo_btn.style.pointerEvents = 'auto';
           }
         },
         {
-        target : '#delete-photo',
-        position: 'center-bottom',
-        buttons: [AnnoButton.BackButton, AnnoButton.NextButton],
-        content: 'Use this to delete a photo',
-        onShow: function () {
+          target : '#delete-photo',
+          position: 'center-bottom',
+          buttons: [AnnoButton.BackButton, AnnoButton.NextButton],
+          content: 'Use this to delete a photo',
+          onShow: function () {
             take_photo_btn.style.pointerEvents = 'none';
           },
-        onHide: function() {
+          onHide: function() {
             take_photo_btn.style.pointerEvents = 'auto';
           }
         },
         {
-        target : '#proceed',
-        position: 'center-bottom',
-        buttons: [AnnoButton.BackButton, AnnoButton.DoneButton],
-        content : 'Use this to proceed to mood detection',
-        onShow: function () {
+          target : '#proceed',
+          position: 'center-bottom',
+          buttons: [AnnoButton.BackButton, AnnoButton.DoneButton],
+          content : 'Use this to proceed to mood detection',
+          onShow: function () {
             take_photo_btn.style.pointerEvents = 'none';
           },
-        onHide: function() {
+          onHide: function() {
             take_photo_btn.style.pointerEvents = 'auto';
           }
-      }]
-      );    
+        }]
+        );    
       anno1.show();
     }); 
-}
+  }
 
-instructions_btn.addEventListener("click", function(e){
-  e.preventDefault();
-  popup();
-});
+  instructions_btn.addEventListener("click", function(e){
+    e.preventDefault();
+    popup();
+  });

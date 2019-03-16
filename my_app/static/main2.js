@@ -18,7 +18,6 @@ initAudio($('#playlist li:first-child'));
 	
 function initAudio(element){
 	var song = element.attr('song');
-	//song = song.split('/static/')[1];
     var title = element.text();
     var cover = element.attr('cover');
     var movie = element.attr('movie');
@@ -30,6 +29,7 @@ function initAudio(element){
 		$('#duration').html('0:00');
 	}
 
+	// set title and movie
 	$('#audio-player .title').text(title);
     $('#audio-player .movie').text(movie);
 	
