@@ -10,7 +10,7 @@
 html{
 	background-color: #fff;
 	font:normal 16px/1.5 sans-serif;
-	background: url(cam_bg.jpg);
+	background: url(bg.png);
 	color: #333;
 }
 
@@ -198,7 +198,7 @@ h3{
 @media(max-width: 1000px){
 	.container{
 		width: 60%;
-		margin: 25px;
+		margin: 25px auto;
 	}
 
 	.app #start-camera.visible{
@@ -216,13 +216,29 @@ h3{
 	.instructions {
 		padding-right: 20%;
 	}
+
+	#start_stop {
+		width: 30%;
+	}
+
+	#save_photo {
+		width: 25%;
+	}
 }
 
 
 @media(max-width: 600px){
 	.container{
 		width: 80%;
-		margin: 10px;
+		margin: 10px auto;
+	}
+
+	#start_stop {
+		width: 42%;
+	}
+
+	#save_photo {
+		width: 34%;
 	}
 
 	.app #error-message{
@@ -250,21 +266,31 @@ h3{
 	.instructions {
 		padding-right: 25%;
 	}
+
+	#start_stop {
+		width: 30%;
+	}
+
+	#save_photo {
+		width: 25%;
+	}
 }
 
 
 #start_stop {
-	display: flex;
-	font-size: xx-large;
-	justify-content: center;
-	margin-bottom: 5px;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+    margin-bottom: 12px!important;
+    margin: auto;
 }
 
 #save_photo {
 	display: flex;
-	font-size: xx-large;
-	justify-content: center;
-	margin-bottom: 20px;
+    font-size: 1.2rem;
+    justify-content: center;
+    margin-bottom: 20px!important;
+    margin: auto;
 }
 
 .instructions{
