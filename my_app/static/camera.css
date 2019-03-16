@@ -198,7 +198,7 @@ h3{
 @media(max-width: 1000px){
 	.container{
 		width: 60%;
-		margin: 25px;
+		margin: 25px auto;
 	}
 
 	.app #start-camera.visible{
@@ -230,7 +230,7 @@ h3{
 @media(max-width: 600px){
 	.container{
 		width: 80%;
-		margin: 10px;
+		margin: 10px auto;
 	}
 
 	#start_stop {
@@ -281,14 +281,16 @@ h3{
     display: flex;
     font-size: 1.2rem;
     justify-content: center;
-    margin-bottom: 12px;
+    margin-bottom: 12px!important;
+    margin: auto;
 }
 
 #save_photo {
 	display: flex;
     font-size: 1.2rem;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 20px!important;
+    margin: auto;
 }
 
 .instructions{
