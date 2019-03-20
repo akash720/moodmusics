@@ -48,7 +48,7 @@ body{
 	background:#000100;
 	box-shadow: 0 0 20px 10px black;
 	overflow:auto;
-	margin:60px auto;
+	margin:50px auto;
 	-moz-border-radius:10px;
 	-webkit-border-radius:10px;
 	border-radius:10px;
@@ -66,6 +66,8 @@ body{
 #detected_mood{
 	text-align: center;
 	margin-bottom: 5%;
+	font-weight: 500;
+    font-size: larger;
 }
 
 #audio-info{
