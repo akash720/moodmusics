@@ -3,10 +3,10 @@ MoodMusics is a music player which play songs based on your mood.<br />
 Check out this repo for notebook on how I trained my model : https://github.com/akash720/Facial-expression-recognition
 
 ## Dependencies
-Django==2.1.1 <br />
+Django>=2.1.6 <br />
 Keras==2.2.2  <br />
 numpy==1.14.3 <br />
-requests==2.18.4  <br />
+requests>=2.20.0  <br />
 opencv-python==3.4.2.17 <br />
 tensorflow==1.10.0  <br />
 Pillow==5.1.0 <br />
