@@ -8,7 +8,8 @@ Keras==2.2.2  <br />
 numpy==1.14.3 <br />
 requests>=2.20.0  <br />
 opencv-python==3.4.2.17 <br />
-tensorflow>=1.12.1  <br />
+tensorflow==1.10.0 <br />
+whitenoise==3.3.1 <br />
 Pillow>=6.2.0 <br />
 
 ## Things you need to install to set up the project locally
