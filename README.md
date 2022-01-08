@@ -6,7 +6,7 @@ Check out this repo for notebook on how I trained my model : https://github.com/
 django==4.0.1 <br />
 keras==2.7.0  <br />
 numpy==1.22.0 <br />
-opencv-python==4.5.5.62 <br />
+opencv-python-headless==4.5.5.62 <br />
 tensorflow==2.7.0 <br />
 whitenoise==5.3.0 <br />
 Pillow==9.0.0 <br />
