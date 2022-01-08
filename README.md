@@ -2,26 +2,23 @@
 MoodMusics is a music player which play songs based on your mood.<br />
 Check out this repo for notebook on how I trained my model : https://github.com/akash720/Facial-expression-recognition
 
-## Dependencies
-Django>=2.1.6 <br />
-Keras==2.2.2  <br />
-numpy==1.14.3 <br />
-requests>=2.20.0  <br />
-opencv-python==3.4.2.17 <br />
-tensorflow==1.10.0 <br />
-whitenoise==3.3.1 <br />
-Pillow>=6.2.0 <br />
+## General dependencies
+django==4.0.1 <br />
+keras==2.7.0  <br />
+numpy==1.22.0 <br />
+opencv-python-headless==4.5.5.62 <br />
+tensorflow==2.7.0 <br />
+whitenoise==5.3.0 <br />
+Pillow==9.0.0 <br />
 
 ## Things you need to install to set up the project locally
 
 1. Python3
-2. Pip
-3. Django(2.1)
-4. Conda
+2. Django
 
 ## Steps
-- Make a virtual environment using "conda create -n envname python=3.6 pip"
-- source activate envname (for mac/linux) | activate envname (for windows)
+- Make a virtual environment
+- Activate virtual environment
 - Download or clone this repo by [git clone https://github.com/akash720/moodmusics.git](https://github.com/akash720/moodmusics.git)
 - pip install -r requirements.txt
 - Run the app using python manage.py runserver
