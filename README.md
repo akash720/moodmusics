@@ -14,13 +14,11 @@ Pillow==9.0.0 <br />
 ## Things you need to install to set up the project locally
 
 1. Python3
-2. Pip
-3. Django(2.1)
-4. Conda
+2. Django
 
 ## Steps
-- Make a virtual environment using "conda create -n envname python=3.6 pip"
-- source activate envname (for mac/linux) | activate envname (for windows)
+- Make a virtual environment
+- Activate virtual environment
 - Download or clone this repo by [git clone https://github.com/akash720/moodmusics.git](https://github.com/akash720/moodmusics.git)
 - pip install -r requirements.txt
 - Run the app using python manage.py runserver
