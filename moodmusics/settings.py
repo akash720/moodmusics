@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.getenv('SECRET_KEY', 'Nothing to see here')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# Debug settings in respective local and prod settings
 
 # Application definition
 
@@ -114,8 +114,11 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
         os.path.join(BASE_DIR,"my_app/static"),
     ]
-STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage' 
+
+# tells nginx or apache where to look for static files
+# only used in production and not in development
+STATIC_ROOT = os.path.join(BASE_DIR)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)

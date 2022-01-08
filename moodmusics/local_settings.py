@@ -1,9 +1,12 @@
 ALLOWED_HOSTS = ['moodmusics.herokuapp.com','localhost','127.0.0.1']
 
-SECURE_SSL_REDIRECT = False # [1]
+SECURE_SSL_REDIRECT = False
+
+DEBUG = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
