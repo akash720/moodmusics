@@ -8,16 +8,26 @@ from keras.models import load_model
 from keras import backend as K
 import numpy as np
 
-def openCamera(request):
+from .models import Song
+
+def open_camera(request):
 	return render(request, 'camera.html')
 
-my_mood = '';
+my_mood = ''
 
 #Defining labels 
 def get_label(argument):
     labels = {0:'Angry', 1:'Disgust', 2:'Fear', 3:'Happy', 4:'Sad' , 5:'Surprise', 6:'Neutral'}
     return(labels.get(argument, "Invalid emotion"))
 
+# get all songs of the mood passed
+def get_songs(mood):
+	all_songs = Song.objects.all()
+	mood_songs = []
+	for song in all_songs:
+		if song.mood == mood:
+			mood_songs.append(song)
+	return mood_songs
 
 def detect(request):
 	#Using another pre-trained model because of it's better accuracy
@@ -29,8 +39,8 @@ def detect(request):
 		data = request.POST['image_data']
 	except:
 		K.clear_session()
-		#No data, redirect to openCamera
-		return redirect(openCamera)
+		#No data, redirect to open_camera
+		return redirect(open_camera)
 
 	#Decoding image URI
 	binary_data = a2b_base64(data)
@@ -46,8 +56,8 @@ def detect(request):
 
 	if len(faces)==0:
 		K.clear_session()
-		#No face, redirect to openCamera
-		return redirect(openCamera)
+		#No face, redirect to open_camera
+		return redirect(open_camera)
 
 	for (x, y, w, h) in faces:
 		crop_img = img[y:y+h, x:x+w]
@@ -68,9 +78,11 @@ def detect(request):
 	#argmax returns index of max value
 	result_num = np.argmax(res)
 
-	mood = get_label(result_num);
+	mood = get_label(result_num)
 
 	K.clear_session()
 
-	return render(request, 'main2.html' , {'my_mood': mood} )
+	context = {'my_mood': mood, 'mood_songs': get_songs(mood)}
+
+	return render(request, 'main2.html' , context )
 	

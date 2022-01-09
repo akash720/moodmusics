@@ -17,7 +17,7 @@ for (var i = ul.children.length; i >= 0; i--) {
 initAudio($('#playlist li:first-child'));
 	
 function initAudio(element){
-	var song = element.attr('song');
+	var song = element.attr('song_url');
     var title = element.text();
     var cover = element.attr('cover');
     var movie = element.attr('movie');
