@@ -12,3 +12,4 @@ numpy==1.22.0
 requests==2.27.1
 opencv-python-headless==4.5.5.62
 tensorflow-cpu==2.7.0
+protobuf==3.20.*

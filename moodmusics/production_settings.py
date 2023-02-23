@@ -1,6 +1,7 @@
-ALLOWED_HOSTS = ['moodmusics.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['moodmusics.up.railway.app', 'localhost']
+CSRF_TRUSTED_ORIGINS = ['https://moodmusics.up.railway.app']
 
-SECURE_SSL_REDIRECT = True 
+SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 DEBUG = False
