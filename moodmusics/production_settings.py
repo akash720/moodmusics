@@ -1,4 +1,4 @@
-ALLOWED_HOSTS = ['moodmusics.onrender.com', 'localhost']
+ALLOWED_HOSTS = ['moodmusics.onrender.com']
 CSRF_TRUSTED_ORIGINS = ['https://moodmusics.onrender.com']
 
 SECURE_SSL_REDIRECT = True
