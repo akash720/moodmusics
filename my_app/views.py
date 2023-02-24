@@ -37,7 +37,7 @@ def detect(request):
     image_data = BytesIO(binary_data)
     img = np.array(Image.open(image_data).convert('RGB'))
 
-    detector = FER(mtcnn=True)
+    detector = FER()
     mood_tuple = detector.top_emotion(img)
     if not mood_tuple:
         K.clear_session()
