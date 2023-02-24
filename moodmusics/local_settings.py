@@ -1,4 +1,4 @@
-ALLOWED_HOSTS = ['moodmusics.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['moodmusics.cyclic.app','localhost','127.0.0.1']
 
 SECURE_SSL_REDIRECT = False
 

@@ -1,4 +1,4 @@
-ALLOWED_HOSTS = ['moodmusics.herokuapp.com','localhost']
+ALLOWED_HOSTS = ['moodmusics.cyclic.app','localhost']
 
 SECURE_SSL_REDIRECT = True 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
