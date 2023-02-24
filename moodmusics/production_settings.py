@@ -1,5 +1,4 @@
-ALLOWED_HOSTS = ['moodmusics.onrender.com']
-CSRF_TRUSTED_ORIGINS = ['https://moodmusics.onrender.com']
+ALLOWED_HOSTS = ['moodmusics.onrender.com', 'localhost']
 
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
