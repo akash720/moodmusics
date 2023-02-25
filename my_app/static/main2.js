@@ -1,6 +1,9 @@
 var audio;
-var vol_img = document.getElementById('volume_button');
-vol_img.setAttribute('src', "/static/vol_on.png");
+var vol_btn = document.getElementById('volume-button');
+vol_btn.setAttribute('src', "/static/vol_on.png");
+
+var retry_button = document.getElementById('retry-button');
+retry_button.setAttribute('src', "/static/retry.png");
 
 var current_vol = 0;
 var is_on = 1;
@@ -30,11 +33,11 @@ function initAudio(element){
 	}
 
 	// set title and movie
-	$('#audio-player .title').text(title);
-    $('#audio-player .movie').text(movie);
+	$('#audio-player #title').text(title);
+    $('#audio-player #movie').text(movie);
 	
 	//Insert Cover Image
-	$('img.cover').attr('src', "/static/" +cover);
+	$('#audio-image #cover').attr('src', "/static/" +cover);
 	
 	$('#playlist li').removeClass('active');
     element.addClass('active');
@@ -122,11 +125,11 @@ $('#volume').change(function(){
 	audio.volume = parseFloat(this.value / 10);
 
 	if(this.value == 0){
-		vol_img.setAttribute('src', "/static/vol_off.png");
+		vol_btn.setAttribute('src', "/static/vol_off.png");
 	}
 
 	else {
-		vol_img.setAttribute('src', "/static/vol_on.png");
+		vol_btn.setAttribute('src', "/static/vol_on.png");
 	}
 });
 	
@@ -160,18 +163,17 @@ $(".progress").mouseup(function(e){
  	}
 });
 
-document.getElementById('volume_button').addEventListener('click', function(e){
-
+vol_btn.addEventListener('click', function(e){
 	e.preventDefault();
 	if(is_on == 1) {
-		vol_img.setAttribute('src', "/static/vol_off.png");
+		vol_btn.setAttribute('src', "/static/vol_off.png");
 		current_vol = document.getElementById("volume").value;
 		document.getElementById("volume").value = 0;
 		audio.volume = 0;
 		is_on = 0;
 	}
 	else {
-		vol_img.setAttribute('src', "/static/vol_on.png");
+		vol_btn.setAttribute('src', "/static/vol_on.png");
 		audio.volume = parseFloat(current_vol / 10);
 		document.getElementById("volume").value = current_vol;
 		is_on = 1;

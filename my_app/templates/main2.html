@@ -17,15 +17,15 @@
 <body>
 	<div id="container">
 		<div id="audio-image">
-			<img class="cover" />
+			<img id="cover" src=""/>
 		</div>
 
 		<div id="audio-player">
 			<div id="audio-info">
-				<span class="movie"></span> - <span class="title"></span>
+				<span id="movie"></span> - <span id="title"></span>
 			</div>
-			<div id="vol_controls">
-				<img id="volume_button"></img>
+			<div id="vol-controls">
+				<img id="volume-button" src=""/>
 				<input id="volume" type="range" min="0" max="10" value="10" />
 			</div>
 			<div id="buttons">
@@ -57,15 +57,18 @@
 				Mood : {{ my_mood }}
 			</span>
 		</div>
-
+		<hr style="border-top: 1px solid white;">
+		<div id="retry-div" style="text-align: center;">
+			<img id="retry-button" src="" onclick="history.back()"/>
+		</div>
 	</div>
 	<div id="center_div">
 		<div class="wrapper">
 			<a target="_blank" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=jainakash720@gmail.com&shva=1"><i class="fa fa-3x fa-google"></i></a>
 			<a target="_blank" href="https://www.facebook.com/akash720"><i class="fa fa-3x fa-facebook-square"></i></a>
 			<a target="_blank" href="https://github.com/akash720/"><i class="fa fa-3x fa-github-square"></i></a>
-			<a target="_blank" href="https://www.linkedin.com/in/akash-jain-248b55137/"><i class="fa fa-3x fa-linkedin-square"></i>
-			</div></a>
+			<a target="_blank" href="https://www.linkedin.com/in/akash-jain-248b55137/"><i class="fa fa-3x fa-linkedin-square"></i></a>
+			</div>
 		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="{% static 'main2.js' %}"></script>

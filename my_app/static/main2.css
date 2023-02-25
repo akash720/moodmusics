@@ -75,23 +75,33 @@ body{
 	text-align:center;
 }
 
-#audio-info .title{
+#audio-info #title{
 	font-weight:bold;
 }
 
-.cover{
+#cover{
 	width:115%;
 	z-index:1;
 }
 
-#vol_controls {
+#vol-controls {
 	display: flex;
 }
 
-#volume_button {
+#volume-button {
 	height:24px;
     width:24px;
     margin: 2% 3%;
+}
+
+#retry-button {
+	height: 24px;
+    width: 24px;
+}
+
+#retry-div {
+    margin: 5% 3%;
+    text-align: center;
 }
 
 input#volume {
@@ -184,10 +194,7 @@ button#next:hover{
 
 #playlist {
     list-style-type: none;
-	padding-right:10px;
-	padding-left:10px;
-	padding-bottom:10px;
-	padding-top: 5px;
+    padding: 5px 10px;
 }
 
 #playlist li {
