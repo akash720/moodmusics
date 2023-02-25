@@ -1,6 +1,9 @@
 from django.contrib import admin
-
-# Register your models here.
 from .models import Song
 
-admin.site.register(Song)
+
+class SongAdmin(admin.ModelAdmin):
+    list_display = ('label', 'mood')
+
+
+admin.site.register(Song, SongAdmin)
