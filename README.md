@@ -1,6 +1,8 @@
 # MoodMusics
 MoodMusics is a music player which play songs based on your mood.<br />
-Check out this repo for notebook on how I trained my model : https://github.com/akash720/Facial-expression-recognition
+Check it out now: https://moodmusics.up.railway.app/  
+
+Also, check out this repo for notebook on how I trained my model : https://github.com/akash720/Facial-expression-recognition
 
 ## General dependencies
 django==4.0.1 <br />
