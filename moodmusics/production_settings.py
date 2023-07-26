@@ -1,4 +1,4 @@
-ALLOWED_HOSTS = ['moodmusics.up.railway.app', 'localhost']
+ALLOWED_HOSTS = ['moodmusics.vercel.app', 'localhost']
 
 SECURE_SSL_REDIRECT = True
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

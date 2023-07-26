@@ -61,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'moodmusics.wsgi.application'
+WSGI_APPLICATION = 'moodmusics.wsgi.app'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
